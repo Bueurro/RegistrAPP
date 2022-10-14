@@ -1,0 +1,32 @@
+<ion-content>
+  <img src="https://live.staticflickr.com/8454/8052574696_2106b56753_b.jpg" alt="">
+  <div id="container" >
+    <ion-card class="carta">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Logo_DuocUC.svg/2560px-Logo_DuocUC.svg.png" />
+
+      <ion-card-content>
+        Inicio de sesión
+        <ion-item>
+          <ion-label position="stacked">Usuario: </ion-label>
+          <ion-input placeholder="alumno@duocuc.cl" type="text" #txtUsuario></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Contraseña: </ion-label>
+          <ion-input placeholder="contraseña" type="password" #txtPass></ion-input>
+        </ion-item>
+
+
+        
+      </ion-card-content>
+
+      <ion-button expand="block" (click)="login(txtUsuario,txtPass)">Iniciar sesión</ion-button>
+      <ion-button expand="block" [routerLink]="['/login/registro']">Registrar</ion-button>
+      {{ mensaje }}
+      <br>
+      <!--Mantener sesión-->
+      <i-label class="olv" [routerLink]="['/login/resetpass']" >¿Olvidaste tu contraseña?</i-label>
+    </ion-card>
+  </div>
+</ion-content>
+

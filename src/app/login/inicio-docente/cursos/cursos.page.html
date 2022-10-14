@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>cursos</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngFor= "let aux of cursos" [routerLink]="['/cursos',aux.id]">
+    <ion-label>{{ aux.nombre }}</ion-label>
+  </ion-item>
+</ion-content>
+  <!--inicio footer-->
+  <ion-footer> 
+    <ion-toolbar>
+      <div class="btnfooter">
+
+    
+        <ion-button class="boton2" color="tertiary" [routerLink]="['/cursos']"><ion-icon name="book-outline"></ion-icon></ion-button>
+    
+
+      </div>
+    </ion-toolbar>
+  </ion-footer>
+  <!--fin del footer-->
+  

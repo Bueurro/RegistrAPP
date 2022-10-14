@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-content>
+    <div class="carta">
+      <img aling="center" src="./assets/person_box.png" />
+      <ion-label>{{nombre}}</ion-label>
+      <hr>
+      <ion-button (click)="onClick()" [routerLink]="['/']" expand="block" fill="clear" shape="round">
+        Cerrar Sesión
+      </ion-button>
+    </div>
+  </ion-content>
+
+</ion-content>
+
+    <!--inicio footer-->
+    <ion-footer> 
+      <ion-toolbar>
+        <div class="btnfooter">
+          <ion-button class="boton1" color="medium" [routerLink]="['/inicio-docente',nombre]" ><ion-icon name="home-outline" ></ion-icon></ion-button>
+      
+          <ion-button class="boton2" color="medium"  [routerLink]="['/cursos']"><ion-icon name="book-outline"></ion-icon></ion-button>
+      
+          <ion-button class="boton3" color="tertiary" [routerLink]="['/perfil',nombre]"><ion-icon name="person-outline"></ion-icon></ion-button>
+        </div>
+      </ion-toolbar>
+    </ion-footer>
+    <!--fin del footer-->
+  

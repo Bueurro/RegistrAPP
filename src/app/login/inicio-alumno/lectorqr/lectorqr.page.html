@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> scanner</ion-title>
+    <ion-bottons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-bottons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <img src="./assets/scaner.png" />
+    <ion-card-subtitle>Disponible durante 90 minutos </ion-card-subtitle>
+
+  </ion-card>
+</ion-content>
+<!--inicio footer-->
+<ion-footer> 
+  <ion-toolbar>
+    <div class="btnfooter">    
+      <ion-button class="boton3" color="medium" [routerLink]="['/lectorqr']"><ion-icon name="scan-outline"></ion-icon></ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>
+<!--fin del footer-->

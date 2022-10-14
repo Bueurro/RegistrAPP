@@ -1,0 +1,28 @@
+<ion-content>
+  <img src="https://live.staticflickr.com/8454/8052574696_2106b56753_b.jpg" alt="">
+  <div id="container" >
+    <ion-card class="carta">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Logo_DuocUC.svg/2560px-Logo_DuocUC.svg.png" />
+
+      <ion-card-content>
+        Reestablecimiento de contraseña
+        <ion-item class="lbl">
+          <ion-label position="stacked">Usuario: </ion-label>
+          <ion-input placeholder="alumno@duocuc.cl" type="text" #txtReset></ion-input>
+        </ion-item>
+        <ion-item class="lbl">
+          <ion-label position="stacked" >Nueva contraseña: </ion-label>
+          <ion-input placeholder="contraseña" type="password" #txtNuevaContrasenna></ion-input>
+        </ion-item>
+
+
+        
+      </ion-card-content>
+
+      <ion-button expand="block" (click)="reset(txtReset,password)" [routerLink]="['/login']" (click)="presentAlert()" >Reestablecer</ion-button>
+      {{ msjreset }}
+      <br>
+    </ion-card>
+  </div>
+</ion-content>
