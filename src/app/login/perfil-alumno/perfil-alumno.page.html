@@ -9,7 +9,7 @@
     <img aling="center" src="./assets/person_box.png" />
     <ion-label>{{nombre}}</ion-label>
     <hr>
-    <ion-button (click)="onClick()" [routerLink]="['/']" expand="block" fill="clear" shape="round">
+    <ion-button (click)="logout()" [routerLink]="['/']" expand="block" fill="clear" shape="round">
       Cerrar Sesión
     </ion-button>
   </div>
@@ -19,9 +19,9 @@
 <ion-footer> 
   <ion-toolbar>
     <div class="btnfooter">
-      <ion-button class="boton1" color="tertiary" [routerLink]="['/inicio-alumno',nombre]" ><ion-icon name="home-outline" ></ion-icon></ion-button>
+      <ion-button class="boton1" color="tertiary" [routerLink]="['/inicio-alumno']" ><ion-icon name="home-outline" ></ion-icon></ion-button>
   
-      <ion-button class="boton2" color="medium" [routerLink]="['/perfil-alumno',nombre]"><ion-icon name="person-outline"></ion-icon></ion-button>
+      <ion-button class="boton2" color="medium" [routerLink]="['/perfil-alumno']"><ion-icon name="person-outline"></ion-icon></ion-button>
       
       <ion-button class="boton3" color="medium" [routerLink]="['/lectorqr']"><ion-icon name="scan-outline"></ion-icon></ion-button>
     </div>

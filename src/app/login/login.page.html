@@ -19,9 +19,16 @@
 
         
       </ion-card-content>
-
-      <ion-button expand="block" (click)="login(txtUsuario,txtPass)">Iniciar sesión</ion-button>
-      <ion-button expand="block" [routerLink]="['/login/registro']">Registrar</ion-button>
+      <div class="form-group">
+        <button class="btng btng2" (click)="login(txtUsuario,txtPass)">Iniciar sesión</button>
+      </div>
+      <div class="form-group">
+        <button class="btng btng2" [routerLink]="['/login/registro']">Registrar</button>
+      </div>
+      <div class="form-group" style="margin-top: 10px ;">
+        <button class="btng btn-google" (click)="onGoogleLogin()">Google</button>
+        <button class="btng btn-gh" (click)="onGitHubLogin()">GitHub</button>
+      </div>
       {{ mensaje }}
       <br>
       <!--Mantener sesión-->

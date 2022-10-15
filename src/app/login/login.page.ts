@@ -10,7 +10,7 @@ import { Usuario } from './usuario';
 })
 export class LoginPage implements OnInit {
 
-  mensaje : string
+  msj : string
   usuario: Usuario
   constructor(private servicio: FirebaseService, private router: Router) { }
 
@@ -18,13 +18,22 @@ export class LoginPage implements OnInit {
     
   }
 
-  async login(email, pass) {
-    const user = this.servicio.login(email.value,pass.value)
-    if (user) {
-      this.router.navigate(['/inicio-alumno'])
-    } else {
-
-    }
+  onGoogleLogin() {
+    
   }
+
+  async login(email, pass) {
+    try{
+      const user = this.servicio.login(email.value,pass.value)
+      if (user) {
+        console.log('User->',user)
+        this.router.navigate(['/inicio-alumno'])
+      }
+    } catch (error){
+      console.log('Error->',error)
+    }
+
+  }
+  
 
 }

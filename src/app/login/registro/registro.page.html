@@ -16,13 +16,13 @@
           <ion-input placeholder="contraseña" type="password" #txtPass></ion-input>
         </ion-item>
         <ion-item>
-          <ion-checkbox slot="start"></ion-checkbox>
-          <ion-label>Selecciona la casilla si eres profesor</ion-label>
+          <ion-checkbox slot="start" #qDocente></ion-checkbox>
+          <ion-label>Docente</ion-label>
         </ion-item>
+        <button class="btng btng2" (click)="registrar(txtUsuario,txtPass)">Registrar</button>
+        {{ mensaje }}
       </ion-card-content>
 
-      <ion-button expand="block" (click)="registrar(txtUsuario,txtPass)">Registrar</ion-button>
-      {{ mensaje }}
       <br>
     </ion-card>
   </div>

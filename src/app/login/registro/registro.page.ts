@@ -16,24 +16,26 @@ export class RegistroPage implements OnInit {
   }
 
   async registrar(email, pass) {
-    const user = this.servicio.registrar(email.value,pass.value)
-    if (user) {
-      this.presentAlert();
-    } else {
-
+    try{
+      const user = this.servicio.registrar(email.value,pass.value)
+      if (user) {
+        console.log('User->',user)
+        this.presentAlert();
+      } 
+    }catch (error){
+      console.log('Error->',error)
     }
-
   }
 
 
   async presentAlert() {
     const alert = await this.alertController.create({
-      header: 'Reestablecimiento',
-      subHeader: 'eh farso pq es visua',
-      message: 'Se ha reestablecido su contraseña',
+      header: 'Creación de cuenta',
+      subHeader: '',
+      message: 'Se ha creado su cuenta',
       buttons: ['OK'],
     });
-
     await alert.present();
+    this.router.navigate(['/login'])
   }
 }
