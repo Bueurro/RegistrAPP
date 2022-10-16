@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Clase } from 'src/app/interfaces/clase';
 import { FirebaseService } from 'src/app/services/firebase.service';
+import { getAuth } from "firebase/auth";
+import { Tempuser } from 'src/app/interfaces/tempuser';
 
 @Component({
   selector: 'app-inicio-alumno',
@@ -15,9 +17,25 @@ export class InicioAlumnoPage implements OnInit {
 
   ngOnInit() {
     this.obtenerClases();
+    this.validacion();
   }
 
   todolist = []
+
+  usuariolog : any;
+
+
+  validacion() {
+    this.fire.obtenerUsuario().then(
+      (resp)=>{
+        this.usuariolog= resp.email;
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+  }
+
 
   obtenerClases() {
     this.fire.getCollection<Clase>('Clase').subscribe(
@@ -26,44 +44,11 @@ export class InicioAlumnoPage implements OnInit {
         this.todolist=(res)
       },
       (err) => {
-
+        console.log(err)
       }
     )
   }
 
-  async agregar() {
-    const alert = await this.alerta.create({
-      header: 'Agregar Clase',
-      inputs: [
-        {
-          name: 'txtNombreclase',
-          placeholder: 'Nombre clase:'
-        },
-        {
-          name: 'txtSeccion',
-          placeholder: 'Sigla Sección:'
-        },
-        {
-          name: 'txtHorario',
-          placeholder: 'Horario:'
-        },
-      ],
-      buttons: [
-        {
-          text: 'Cancelar',
-          role: 'cancel',
-        },
-        {
-          text: 'Guardar',
-          handler: data => {
 
-          },
-        },
-      ],
-    });
-
-    await alert.present();
-
-  }
 
 }

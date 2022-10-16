@@ -4,9 +4,7 @@
       <ion-label style="font-weight:800 ;font-size: 3em;" >
         HORARIO
         <p style="font-weight: 400;color : blue"> </p>
-        <p>
-          Bienvenido  !!
-        </p>
+        <p> Bienvenido {{ usuariolog }}!! </p>
       </ion-label>
     </ion-item>
   </ion-toolbar>
@@ -16,13 +14,13 @@
  <ion-card *ngFor="let aux of todolist" class="ion-margin">
   <ion-card-header>
     <ion-item>
-      <ion-label>{{ aux.nombreclase }}-{{ aux.seccion }}</ion-label>
+      <ion-icon name="book-outline"></ion-icon> <ion-label>{{ aux.nombreclase }}-{{ aux.seccion }}</ion-label>
     </ion-item>
   </ion-card-header>
 
   <ion-card-content>
     <ion-label>
-      Hora de Clase: {{ aux.hora }}
+      <ion-icon name="time-outline"></ion-icon> Hora de Clase: {{ aux.hora }}
     </ion-label>
   </ion-card-content>
  </ion-card>

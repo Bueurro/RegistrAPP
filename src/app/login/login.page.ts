@@ -12,7 +12,7 @@ export class LoginPage implements OnInit {
 
   msj : string
   usuario: Usuario
-  constructor(private servicio: FirebaseService, private router: Router) { }
+  constructor(private fire: FirebaseService, private router: Router) { }
 
   ngOnInit() {
     
@@ -21,16 +21,23 @@ export class LoginPage implements OnInit {
   onGoogleLogin() {
     
   }
-
+  
   async login(email, pass) {
-    try{
-      const user = this.servicio.login(email.value,pass.value)
-      if (user) {
-        console.log('User->',user)
-        this.router.navigate(['/inicio-alumno'])
+    if (email.value = '') {
+      this.fire.mensaje('Error, debe ingresar mail')
+    }else if (pass.value = '') {
+      this.fire.mensaje('Error, debe ingresar contraseña')
+    } else {
+      try{
+        const user = this.fire.login(email.value,pass.value)
+        if (user) {
+          console.log('User->',user)
+          this.router.navigate(['inicio-alumno'])
+        }
+      } catch (error){
+        console.log('Error->',error)
       }
-    } catch (error){
-      console.log('Error->',error)
+
     }
 
   }

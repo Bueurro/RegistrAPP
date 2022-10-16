@@ -1,11 +1,4 @@
 .btnfooter{
-    .boton1{
-        margin-left: 15%;
-    }
-    .boton2{
-        margin-left: 9%;
-    }
-    .boton3{
-        margin-left: 9%;
-    }
+    display: flex;
+    flex-direction: column;
 }

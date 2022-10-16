@@ -17,10 +17,6 @@
 }
 
 .btnfooter{
-    .boton1{
-        margin-left: 30%;
-    }
-    .boton2{
-        margin-left: 10px;
-    }
+    display: flex;
+    flex-direction: column;
 }

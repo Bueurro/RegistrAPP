@@ -7,7 +7,6 @@ import { Observable, of } from 'rxjs';
 import { User } from '../interfaces/user';
 import { Usuario } from '../login/usuario';
 import { switchMap } from "rxjs/operators"
-import { Tempuser } from '../interfaces/tempuser';
 
 @Injectable({
   providedIn: 'root'
@@ -82,7 +81,7 @@ export class FirebaseService {
     await this.loadingAux.dismiss();
   }
 
-  async logout(): Promise<void> {
+  async logout() {
     await this.authfa.signOut();
   }
 

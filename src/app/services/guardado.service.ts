@@ -17,10 +17,12 @@ export class GuardadoService {
       docente: docente,
       pass: pass,
     };
-  
-    this.fire.createDoc(tuser,'users',tuser.uid);
-    this.fire.mensaje('Cuenta Registrada en la base de datos');
-    console.log(tuser)
+    
+    if (tuser) {
+      this.fire.createDoc(tuser,'users',tuser.uid);
+      this.fire.mensaje('Cuenta Registrada en la base de datos');
+      console.log(tuser)
+    }
       
   }
 
