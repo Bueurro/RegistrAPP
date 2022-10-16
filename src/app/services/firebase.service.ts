@@ -111,7 +111,7 @@ export class FirebaseService {
       await this.verificacion();
       return user;
     } catch (error) {
-      console.log('Error->',error)
+      console.log('Error-=->',error)
     }
   }
 

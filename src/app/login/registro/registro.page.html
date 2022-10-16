@@ -8,6 +8,10 @@
       <ion-card-content>
         Registro
         <ion-item>
+          <ion-label position="stacked">Nombre: </ion-label>
+          <ion-input placeholder="Pedro Lopez" type="text" #txtNombre></ion-input>
+        </ion-item>
+        <ion-item>
           <ion-label position="stacked">Correo: </ion-label>
           <ion-input placeholder="alumno@duocuc.cl" type="text" #txtUsuario></ion-input>
         </ion-item>
@@ -15,11 +19,19 @@
           <ion-label position="stacked">Contraseña: </ion-label>
           <ion-input placeholder="contraseña" type="password" #txtPass></ion-input>
         </ion-item>
-        <ion-item>
-          <ion-checkbox slot="start" #qDocente></ion-checkbox>
-          <ion-label>Docente</ion-label>
-        </ion-item>
-        <button class="btng btng2" (click)="registrar(txtUsuario,txtPass)" (click)="GuardarFire(txtUsuario,txtPass,qDocente)">Registrar</button>
+        <ion-list>
+          <ion-radio-group [allowEmptySelection]="false" value="" #qDocente>
+            <ion-item>
+              <ion-label>Docente</ion-label>
+              <ion-radio slot="end" value="2"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Estudiante</ion-label>
+              <ion-radio slot="end" value="1"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+        <button class="btng btng2" (click)="registrar(txtUsuario,txtPass)" (click)="GuardarFire(txtNombre,txtUsuario,txtPass,qDocente)">Registrar</button>
         {{ mensaje }}
       </ion-card-content>
 

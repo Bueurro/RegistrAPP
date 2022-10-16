@@ -9,19 +9,12 @@ export class GuardadoService {
 
   constructor(private fire: FirebaseService) { }
 
-  async GuardarFire(email: string, pass: string, docenteu: boolean) {
-    var docentetatu = docenteu
-    var estadoDocente = 1
-    if (docentetatu = true) {
-      estadoDocente = 2
-    }else if (docentetatu = false){
-      estadoDocente = 1
-    };
+  async GuardarFire(nombre: string, email: string, pass: string, docente: number) {
     const tuser: Tempuser = {
       uid : this.fire.getId(),
       email : email,
-      displayName : 'null',
-      docente: estadoDocente,
+      displayName : nombre,
+      docente: docente,
       pass: pass,
     };
   
