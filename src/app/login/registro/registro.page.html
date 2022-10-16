@@ -19,7 +19,7 @@
           <ion-checkbox slot="start" #qDocente></ion-checkbox>
           <ion-label>Docente</ion-label>
         </ion-item>
-        <button class="btng btng2" (click)="registrar(txtUsuario,txtPass)">Registrar</button>
+        <button class="btng btng2" (click)="registrar(txtUsuario,txtPass)" (click)="GuardarFire(txtUsuario,txtPass,qDocente)">Registrar</button>
         {{ mensaje }}
       </ion-card-content>
 

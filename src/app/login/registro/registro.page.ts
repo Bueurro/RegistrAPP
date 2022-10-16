@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { FirebaseService } from 'src/app/services/firebase.service';
+import { Tempuser } from 'src/app/interfaces/tempuser';
+import { GuardadoService } from 'src/app/services/guardado.service';
+
 
 @Component({
   selector: 'app-registro',
@@ -10,14 +13,14 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 })
 export class RegistroPage implements OnInit {
 
-  constructor(private servicio: FirebaseService, private router: Router, private alertController: AlertController) { }
+  constructor(private fire: FirebaseService, private router: Router, private alertController: AlertController, private guard: GuardadoService) { }
 
   ngOnInit() {
   }
 
   async registrar(email, pass) {
     try{
-      const user = this.servicio.registrar(email.value,pass.value)
+      const user = this.fire.registrar(email.value,pass.value)
       if (user) {
         console.log('User->',user)
         this.presentAlert();
@@ -38,4 +41,10 @@ export class RegistroPage implements OnInit {
     await alert.present();
     this.router.navigate(['/login'])
   }
+
+  async GuardarFire(email, pass, docente) {
+    this.guard.GuardarFire(email.value,pass.value,docente.value)
+    this.fire.mensaje('Cuenta Registrada en la base de datos')
+  }
+
 }

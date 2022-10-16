@@ -7,13 +7,14 @@ import { Observable, of } from 'rxjs';
 import { User } from '../interfaces/user';
 import { Usuario } from '../login/usuario';
 import { switchMap } from "rxjs/operators"
+import { Tempuser } from '../interfaces/tempuser';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
   public user$: Observable<User>;
-
+  
 
   constructor(private authfa: AngularFireAuth , private database: AngularFirestore, private loading: LoadingController, private toastController: ToastController) {
     this.user$ = this.authfa.authState.pipe(
@@ -93,15 +94,17 @@ export class FirebaseService {
       console.log('Error->',error)
     }
   }
-  
+  //
   //async loginGoogle(): Promise<User>{
-    //try{
-      //const { user } = await this.authfa.signInWithPopup(new auth.)
-    //} catch (error) {
-//      console.log('Error->',error)
-    //}
+  //  try{
+  //    const { user } = await this.authfa.signInWithPopup(new auth.)
+  //  } catch (error) {
+  //    console.log('Error->',error)
+  //  }
   //}
 
+  
+  
   async registrar(correo: string, pass: string): Promise<User> {
     try {
       const { user } = await this.authfa.createUserWithEmailAndPassword(correo, pass)
@@ -111,6 +114,8 @@ export class FirebaseService {
       console.log('Error->',error)
     }
   }
+
+  
 
   async verificacion() {
     return (await this.authfa.currentUser).sendEmailVerification();
