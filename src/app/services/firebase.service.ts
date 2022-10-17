@@ -6,7 +6,9 @@ import { LoadingController, ToastController } from '@ionic/angular';
 import { Observable, of } from 'rxjs';
 import { User } from '../interfaces/user';
 import { Usuario } from '../login/usuario';
-import { switchMap } from "rxjs/operators"
+import { switchMap } from "rxjs/operators";
+import { AuthProvider, getAuth } from 'firebase/auth'; 
+import * as firebase from "firebase/auth"
 
 @Injectable({
   providedIn: 'root'
@@ -93,6 +95,7 @@ export class FirebaseService {
       console.log('Error->',error)
     }
   }
+  
   //
   //async loginGoogle(): Promise<User>{
   //  try{
@@ -102,9 +105,7 @@ export class FirebaseService {
   //  }
   //}
 
-  //async onGitHubLogin() {
-  //  var provider = new this.authfa.GithubAuthProvider();
-  //}
+  
   
   async registrar(correo: string, pass: string): Promise<User> {
     try {

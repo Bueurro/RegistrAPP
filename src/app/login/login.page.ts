@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Tempuser } from '../interfaces/tempuser';
 import { FirebaseService } from '../services/firebase.service';
-
+import { AuthProvider, getAuth } from 'firebase/auth'; 
+import * as firebase from "firebase/auth"
 
 @Component({
   selector: 'app-login',
@@ -18,21 +19,49 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.obtenerUsuarios();
+    this.verificarLogin();
   }
 
   onGoogleLogin() {
-    try {
-
-    }catch (error) {
-      console.log('Error->',error)
-    }
+    var provider = new firebase.GoogleAuthProvider();
+    const auth = getAuth();
+    firebase.signInWithPopup(auth,provider).then(
+      (res) => {
+        this.router.navigate(['/inicio-alumno'])
+        
+      },
+      (err) => {
+        console.log('Error->', err)
+      }
+    )
   }
-  
-  onGitHubLogin() {
 
+  async verificarLogin(){
+    const auth = getAuth();
+    firebase.onAuthStateChanged(auth,function(user) {
+      if (user) {
+        console.log('Esta logeado el usuario:',user.displayName)
+      }else {
+        console.log('No está logeado')
+      }
+
+    });
   }
+    
 
-  
+  async onGitHubLogin() {
+    var provider = new firebase.GithubAuthProvider();
+    const auth = getAuth();
+    firebase.signInWithPopup(auth,provider).then(
+      (res) => {
+        this.router.navigate(['/inicio-alumno'])
+        console.log('User->', res.user)
+      },
+      (err) => {
+        console.log('Error->', err)
+      }
+    )
+  }
   
   async login(txtUsuario,txtPass){
     this.usuario = this.obtenerCustomUsuario(txtUsuario.value,txtPass.value)
