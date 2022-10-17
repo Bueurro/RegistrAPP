@@ -10,6 +10,22 @@
 <ion-content>
   <ion-card>
     <img src="./assets/scaner.png" />
+
+    <!--CODIFICAR-->
+    <ion-input type="text" placeholder="Digite su texto" [(ngModel)]="datocodificado"></ion-input>
+  
+    <ion-button expand="block" (click)="CodificarTexto()">Generar Código</ion-button>
+
+    <br>
+
+    <!--SCANNEAR-->
+    <ion-button expand="block" color="success" (click)="LeerCode()">Scannear Código</ion-button>
+  
+    <div *ngIf="datoscaneado">
+        <p>
+            Contenido obtenido: <b>{{ datoscaneado["text"] }}</b>
+        </p>
+    </div>
     <ion-card-subtitle>Disponible durante 90 minutos </ion-card-subtitle>
 
   </ion-card>
