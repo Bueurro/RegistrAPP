@@ -9,7 +9,7 @@ export class GuardadoService {
 
   constructor(private fire: FirebaseService) { }
 
-  async GuardarFire(nombre: string, email: string, pass: string, docente: number) {
+  async GuardarFire(nombre: string, email: string, pass: string, docente: string) {
     const tuser: Tempuser = {
       uid : this.fire.getId(),
       email : email,

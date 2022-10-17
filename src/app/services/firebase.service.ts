@@ -102,7 +102,9 @@ export class FirebaseService {
   //  }
   //}
 
-  
+  //async onGitHubLogin() {
+  //  var provider = new this.authfa.GithubAuthProvider();
+  //}
   
   async registrar(correo: string, pass: string): Promise<User> {
     try {
@@ -150,5 +152,9 @@ export class FirebaseService {
 
     return userRef.update(data);
   }
+
+
+  
+
 
 }

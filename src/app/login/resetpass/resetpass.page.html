@@ -8,20 +8,16 @@
       <ion-card-content>
         Reestablecimiento de contraseña
         <ion-item class="lbl">
-          <ion-label position="stacked">Usuario: </ion-label>
+          <ion-label position="stacked">Correo: </ion-label>
           <ion-input placeholder="alumno@duocuc.cl" type="text" #txtReset></ion-input>
-        </ion-item>
-        <ion-item class="lbl">
-          <ion-label position="stacked" >Nueva contraseña: </ion-label>
-          <ion-input placeholder="contraseña" type="password" #txtNuevaContrasenna></ion-input>
         </ion-item>
 
 
         
       </ion-card-content>
 
-      <ion-button expand="block" (click)="reset(txtReset,password)" [routerLink]="['/login']" (click)="presentAlert()" >Reestablecer</ion-button>
-      {{ msjreset }}
+      <button class="btng btng2" (click)="olvidopass(txtReset)" >Reestablecer</button>
+      
       <br>
     </ion-card>
   </div>

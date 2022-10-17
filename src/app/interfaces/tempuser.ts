@@ -2,6 +2,6 @@ export interface Tempuser {
     uid : string,
     email : string,
     displayName : string,
-    docente: number,
+    docente: string,
     pass: string,
 }

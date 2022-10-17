@@ -21,7 +21,7 @@ export class InicioAlumnoPage implements OnInit {
   }
 
   todolist = []
-
+  usuarioid : any;
   usuariolog : any;
 
 
@@ -29,6 +29,7 @@ export class InicioAlumnoPage implements OnInit {
     this.fire.obtenerUsuario().then(
       (resp)=>{
         this.usuariolog= resp.email;
+        this.usuarioid= resp.displayName
       },
       (err) => {
         console.log(err);

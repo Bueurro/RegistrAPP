@@ -26,8 +26,22 @@
         <button class="btng btng2" [routerLink]="['/login/registro']">Registrar</button>
       </div>
       <div class="form-group" style="margin-top: 10px ;">
-        <button class="btng btn-google" (click)="onGoogleLogin()">Google</button>
-        <button class="btng btn-gh" (click)="onGitHubLogin()">GitHub</button>
+        <button class="btng btn-google" (click)="onGoogleLogin()">
+          <div class="icono">
+            <ion-icon name="logo-google"></ion-icon>
+          </div>
+          <span>
+            Google
+          </span>
+        </button>
+        <button class="btng btn-gh" (click)="onGitHubLogin()">
+          <div class="icono">
+            <ion-icon name="logo-github"></ion-icon> 
+          </div>
+          <span>
+            GitHub
+          </span>
+        </button>
       </div>
       {{ mensaje }}
       <br>

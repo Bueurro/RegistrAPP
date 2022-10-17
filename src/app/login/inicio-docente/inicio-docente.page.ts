@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AlertController } from '@ionic/angular';
+import { Clase } from 'src/app/interfaces/clase';
+import { FirebaseService } from 'src/app/services/firebase.service';
 
 
 @Component({
@@ -9,38 +12,41 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class InicioDocentePage implements OnInit {
 
-  nombre: string;
-
-
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private alerta: AlertController, private fire: FirebaseService) { }
 
   ngOnInit() {
-    this.nombre = this.activatedRoute.snapshot.paramMap.get("name")
+    this.obtenerClases();
+    this.validacion();
   }
 
-  todolist = [
-    {
-      itemName : 'clase PGY009D',
-      itemDeuDate : '6-8-2022',
-      itemPriority : 'ahora',
-      ItemCategory : 'CLASE',
+  todolist = []
+  usuarioid : any;
+  usuariolog : any;
 
-    },
-    {
-      itemName : 'clase  mdy005D',
-      itemDeuDate : '7-8-2022',
-      itemPriority : 'mediodia',
-      ItemCategory : 'CLASE',
 
-    },
-    {
-      itemName : 'clase PGY007D',
-      itemDeuDate : '9-8-2022',
-      itemPriority : 'tarde',
-      ItemCategory : 'CLASE',
+  validacion() {
+    this.fire.obtenerUsuario().then(
+      (resp)=>{
+        this.usuariolog= resp.email;
+        this.usuarioid= resp.displayName
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+  }
 
-    },
-  ]
-  hoy : number = Date.now();
+
+  obtenerClases() {
+    this.fire.getCollection<Clase>('Clase').subscribe(
+      (res) => {
+        console.log(res)
+        this.todolist=(res)
+      },
+      (err) => {
+        console.log(err)
+      }
+    )
+  }
   
 }
