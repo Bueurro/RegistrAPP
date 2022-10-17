@@ -18,12 +18,15 @@ export class RegistroPage implements OnInit {
   ngOnInit() {
   }
 
-  async registrar(email, pass) {
+  async registrar(nombre, email, pass, docente) {
     try{
       const user = this.fire.registrar(email.value,pass.value)
       if (user) {
         console.log('User->',user)
         this.presentAlert();
+        this.guard.GuardarFire(nombre.value,email.value,pass.value,docente.value)
+        this.fire.mensaje('Cuenta Registrada en la base de datos')
+        console.log('value->',docente.value)
       } 
     }catch (error){
       console.log('Error->',error)
@@ -42,10 +45,5 @@ export class RegistroPage implements OnInit {
     this.router.navigate(['/login'])
   }
 
-  async GuardarFire(nombre, email, pass, docente) {
-    this.guard.GuardarFire(nombre.value,email.value,pass.value,docente.value)
-    this.fire.mensaje('Cuenta Registrada en la base de datos')
-    console.log('value->',docente.value)
-  }
 
 }
