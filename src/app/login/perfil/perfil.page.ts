@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { getAuth } from 'firebase/auth';
 import { FirebaseService } from 'src/app/services/firebase.service';
 
 
@@ -9,15 +10,45 @@ import { FirebaseService } from 'src/app/services/firebase.service';
   templateUrl: './perfil.page.html',
   styleUrls: ['./perfil.page.scss'],
 })
+
 export class PerfilPage implements OnInit {
+
+  nombre: string;
+  correo: string;
+  foto: string;
+  perfill: any;
 
   constructor(private router: Router, private alerta: AlertController, private fire: FirebaseService) { }
 
-  nombre: string;
-
   ngOnInit() {
-    
+    this.obtenerUsuarioAct();
   }
+  
+  ionViewWillEnter() {
+    this.obtenerUsuarioAct();
+  }
+
+  async obtenerUsuarioAct(){
+    const auth = getAuth();
+    const user = auth.currentUser;
+    if (user !== null) {
+      this.perfill = user  
+      this.correo = this.perfill.email
+    }
+    
+    if (this.perfill.displayName !== null){
+      this.nombre = this.perfill.displayName
+    } else {
+      this.nombre = this.perfill.email
+    }
+
+    if (this.perfill.photoURL !== null) {
+      this.foto = this.perfill.photoURL
+    } else {
+      this.foto = "./assets/person_box.png"
+    }
+  }
+
 
   async mensajeLogout() {
     const alert = await this.alerta.create({

@@ -4,7 +4,7 @@
       <ion-label style="font-weight:800 ;font-size: 3em;" >
         HORARIO
         <p style="font-weight: 400;color : blue"> </p>
-        <p> Bienvenido {{ usuariolog }}!! </p>
+        <p> Bienvenido {{ usuarioid }}!! </p>
       </ion-label>
     </ion-item>
   </ion-toolbar>
@@ -29,12 +29,12 @@
 <!--inicio footer-->
 <ion-footer> 
   <ion-toolbar>
-    <div class="btnfooter">
-      <ion-button class="boton1" color="tertiary" [routerLink]="['/inicio-alumno']" ><ion-icon name="home-outline" ></ion-icon></ion-button>
+    <div class="form-group">
+      <button class="btng btng2apretado" [routerLink]="['/inicio-alumno']" ><ion-icon name="home-outline" ></ion-icon></button>
   
-      <ion-button class="boton2" color="medium" [routerLink]="['/perfil-alumno']"><ion-icon name="person-outline"></ion-icon></ion-button>
+      <button class="btng btng2" [routerLink]="['/perfil-alumno']"><ion-icon name="person-outline"></ion-icon></button>
       
-      <ion-button class="boton3" color="medium" [routerLink]="['/lectorqr']"><ion-icon name="scan-outline"></ion-icon></ion-button>
+      <button class="btng btng2" [routerLink]="['/lectorqr']"><ion-icon name="scan-outline"></ion-icon></button>
     </div>
   </ion-toolbar>
 </ion-footer>

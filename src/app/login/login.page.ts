@@ -28,7 +28,8 @@ export class LoginPage implements OnInit {
     firebase.signInWithPopup(auth,provider).then(
       (res) => {
         this.router.navigate(['/inicio-alumno'])
-        
+        this.fire.verificacion()
+        console.log('User->', res.user)
       },
       (err) => {
         console.log('Error->', err)
@@ -55,6 +56,7 @@ export class LoginPage implements OnInit {
     firebase.signInWithPopup(auth,provider).then(
       (res) => {
         this.router.navigate(['/inicio-alumno'])
+        this.fire.verificacion()
         console.log('User->', res.user)
       },
       (err) => {
@@ -103,13 +105,13 @@ export class LoginPage implements OnInit {
       )
     }
     
-    private obtenerCustomUsuario(usuario: string, pass: string) {
-      return {
-        ...this.usuarios.find(aux => {
-          return aux.email === usuario && aux.pass === pass
-        })
-      }
+  private obtenerCustomUsuario(usuario: string, pass: string) {
+    return {
+      ...this.usuarios.find(aux => {
+        return aux.email === usuario && aux.pass === pass
+      })
     }
-
   }
+
+}
   

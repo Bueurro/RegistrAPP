@@ -6,28 +6,26 @@
 
 <ion-content>
   <div class="carta">
-    <img aling="center" src="./assets/person_box.png" />
-    <ion-label></ion-label>
+    <img aling="center" src="{{ foto }}" />
+    <ion-label>{{ nombre }}
+      {{ correo }}</ion-label>
     <hr>
-    <ion-button (click)="mensajeLogout()" expand="block" fill="clear" shape="round">
-      Cerrar Sesión
-    </ion-button>
+    <div class="form-group">
+      <button class="btng btn-google" (click)="mensajeLogout()">Cerrar Sesión</button>
+    </div>
   </div>
 </ion-content>
 
-</ion-content>
-
-    <!--inicio footer-->
-    <ion-footer> 
-      <ion-toolbar>
-        <div class="btnfooter">
-          <ion-button class="boton1" color="medium" [routerLink]="['/inicio-docente']" ><ion-icon name="home-outline" ></ion-icon></ion-button>
-      
-          <ion-button class="boton2" color="medium"  [routerLink]="['/cursos']"><ion-icon name="book-outline"></ion-icon></ion-button>
-      
-          <ion-button class="boton3" color="tertiary" [routerLink]="['/perfil']"><ion-icon name="person-outline"></ion-icon></ion-button>
-        </div>
-      </ion-toolbar>
-    </ion-footer>
-    <!--fin del footer-->
+<!--inicio footer-->
+<ion-footer> 
+  <ion-toolbar>
+    <div class="form-group">
+      <button class="btng btng2" [routerLink]="['/inicio-docente']" ><ion-icon name="home-outline" ></ion-icon></button>
   
+      <button class="btng btng2apretado" [routerLink]="['/perfil']"><ion-icon name="person-outline"></ion-icon></button>
+      
+      <button class="btng btng2" [routerLink]="['/cursos']"><ion-icon name="book-outline"></ion-icon></button>
+    </div>
+  </ion-toolbar>
+</ion-footer>
+<!--fin del footer-->

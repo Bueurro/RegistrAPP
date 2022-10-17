@@ -141,6 +141,10 @@ export class FirebaseService {
     return aux
   }
 
+  async obtenerus() {
+    
+  }
+
   private updateUserData(user: User){
     const userRef: AngularFirestoreDocument<User> = this.database.doc(`users/${user.uid}`);
 

@@ -15,12 +15,12 @@
   <!--inicio footer-->
   <ion-footer> 
     <ion-toolbar>
-      <div class="btnfooter">
-
+      <div class="form-group">
+        <button class="btng btng2" [routerLink]="['/inicio-docente']" ><ion-icon name="home-outline" ></ion-icon></button>
     
-        <ion-button class="boton2" color="tertiary" [routerLink]="['/cursos']"><ion-icon name="book-outline"></ion-icon></ion-button>
-    
-
+        <button class="btng btng2" [routerLink]="['/perfil']"><ion-icon name="person-outline"></ion-icon></button>
+        
+        <button class="btng btng2apretado" [routerLink]="['/cursos']"><ion-icon name="book-outline"></ion-icon></button>
       </div>
     </ion-toolbar>
   </ion-footer>
